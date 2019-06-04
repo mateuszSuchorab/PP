@@ -35,18 +35,28 @@ public class MyRestController {
         return new ResultDTO(loopService.simpleWhile());
     }
 
-    @GetMapping("/buildString")
-    public ResultDTO buildString() {
-        return new ResultDTO(stringService.buildString());
+    @GetMapping("/addStrings")
+    public ResultDTO addStrings() {
+        return new ResultDTO(stringService.addStrings());
     }
 
-    @GetMapping("/buildStringTwo")
-    public ResultDTO buildStringTwo() {
-        return new ResultDTO(stringService.buildStringTwo());
+    @GetMapping("/stringBuilder")
+    public ResultDTO stringBuilder() {
+        return new ResultDTO(stringService.stringBuilder());
     }
 
-    @GetMapping("/buildStringThree")
-    public ResultDTO buildStringThree() {
-        return new ResultDTO(stringService.buildStringThree());
+    @GetMapping("/addMultipleStrings")
+    public ResultDTO addMultipleStrings() {
+        return new ResultDTO(stringService.addMultipleStrings());
+    }
+
+    @GetMapping("/stringBuilderMultiple")
+    public ResultDTO stringBuilderMultiple() {
+        return new ResultDTO(stringService.stringBuilderMultiple());
+    }
+
+    @GetMapping("/addMultipleStringsNotOneRow")
+    public ResultDTO addMultipleStringsNotOneRow() {
+        return new ResultDTO(stringService.addMultipleStringsNotOneRow());
     }
 }

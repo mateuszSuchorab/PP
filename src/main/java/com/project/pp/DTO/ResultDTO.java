@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ResultDTO {
 
-    private long resultTime;
+    private double resultTime;
 
 
 }

@@ -34,15 +34,22 @@
     <div class="row mt-5">
         <div class="col-md-12 mb-5">
             <div class ="row mb-3">
-                <button type="button" class="btn btn-dark col-md-3" id="buildString">String + String</button>
-                <label class="col-md-3" id="buildStringResult"></label>
+                <button type="button" class="btn btn-dark col-md-3" id="addString">String + String</button>
+                <label class="col-md-3" id="addStringResult"></label>
                 <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder">StringBuilder</button>
                 <label class="col-md-3" id="buildStringBuilderResult"></label>
             </div>
             <div class ="row mb-3">
-                <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder2">StringBuilder2</button>
+                <button type="button" class="btn btn-dark col-md-3" id="addString2">String + String Multiple</button>
+                <label class="col-md-3" id="addString2Result"></label>
+                <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder2">StringBuilder Multiple</button>
                 <label class="col-md-3" id="buildStringBuilder2Result"></label>
             </div>
+            <div class ="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="addMultipleStringsNotOneRow">String + String Multiple Not in one row</button>
+                <label class="col-md-3" id="addMultipleStringsNotOneRowResult"></label>
+            </div>
+
         </div>
         <div class="col-md-12 mb-5 ">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -69,12 +76,12 @@
             scrollCollapse: true,
             paging:         false
         });
-        $("#buildString").click(function () {
-            $.get("http://localhost:8080/buildString", function () {
+        $("#addString").click(function () {
+            $.get("http://localhost:8080/addStrings", function () {
                 //ładowanie
             })
                 .done(function (data) {
-                    $("#buildStringResult").text(data.resultTime);
+                    $("#addStringResult").text(data.resultTime);
                     t.row.add( [
                         "String + String",
                         data.resultTime
@@ -84,13 +91,27 @@
                 });
         });
         $("#buildStringBuilder").click(function () {
-            $.get("http://localhost:8080/buildStringTwo", function () {
+            $.get("http://localhost:8080/stringBuilder", function () {
                 //ładowanie
             })
                 .done(function (data) {
                     $("#buildStringBuilderResult").text(data.resultTime);
                     t.row.add( [
-                        "StringBuilder Method 1",
+                        "StringBuilder",
+                        data.resultTime
+                    ] ).draw( false );
+                })
+                .fail(function () {
+                });
+        });
+        $("#addString2").click(function () {
+            $.get("http://localhost:8080/addMultipleStrings", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#addString2Result").text(data.resultTime);
+                    t.row.add( [
+                        "String + String Multiple",
                         data.resultTime
                     ] ).draw( false );
                 })
@@ -98,20 +119,33 @@
                 });
         });
         $("#buildStringBuilder2").click(function () {
-            $.get("http://localhost:8080/buildStringThree", function () {
+            $.get("http://localhost:8080/stringBuilderMultiple", function () {
                 //ładowanie
             })
                 .done(function (data) {
                     $("#buildStringBuilder2Result").text(data.resultTime);
                     t.row.add( [
-                        "StringBuilder Method 2",
+                        "StringBuilder Multiple",
                         data.resultTime
                     ] ).draw( false );
                 })
                 .fail(function () {
                 });
         });
-
+        $("#addMultipleStringsNotOneRow").click(function () {
+            $.get("http://localhost:8080/addMultipleStringsNotOneRow", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#addMultipleStringsNotOneRowResult").text(data.resultTime);
+                    t.row.add( [
+                        "String + String Multiple Not in one row",
+                        data.resultTime
+                    ] ).draw( false );
+                })
+                .fail(function () {
+                });
+        });
     });
 </script>
 </body>

@@ -4,53 +4,85 @@ import org.springframework.stereotype.Service;
 
 @SuppressWarnings("Duplicates")
 @Service
-public class StringService{
+public class StringService {
 
+        int size = 100000;
+        String a = "5";
+        String b = "5";
 
-    public long buildString() {
+    public double addStrings() {
         long start = System.nanoTime();
-        for (int i = 0 ;i < 1000 ;i ++){
-            String a = "5";
-            String b = "5";
-            String c = "5";
-            String d = "5";
-            String e = "5";
-            String result = a + b + c + d + e;
+        for (int i = 0; i < size; i++) {
+            String result="";
+            result = a + b;
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double) (finish - start)) / 1000000;
     }
 
-    public long buildStringTwo() {
+    public double stringBuilder() {
         long start = System.nanoTime();
-        for (int i = 0 ;i < 1000 ;i ++){
-            String a = "5";
-            String b = "5";
-            String c = "5";
-            String d = "5";
-            String e = "5";
-            StringBuilder  result = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            StringBuilder result = new StringBuilder();
             result.append(a);
             result.append(b);
-            result.append(c);
-            result.append(d);
-            result.append(e);
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double) (finish - start)) / 1000000;
     }
-    public long buildStringThree() {
+
+    public double addMultipleStrings() {
         long start = System.nanoTime();
-        for (int i = 0 ;i < 1000 ;i ++){
-            String a = "5",b = "5",c = "5",d = "5",e = "5";
-            StringBuilder  result = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            String result = "";
+            result = a + b + a + b + a + b + a + b + a + b;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
+    public double addMultipleStringsNotOneRow() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            String result = "";
+            result = result + a;
+            result = result + b;
+            result = result + a;
+            result = result + b;
+            result = result + a;
+            result = result + b;
+            result = result + a;
+            result = result + b;
+            result = result + a;
+            result = result + b;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
+
+    public double stringBuilderMultiple() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            StringBuilder result = new StringBuilder();
             result.append(a);
             result.append(b);
-            result.append(c);
-            result.append(d);
-            result.append(e);
+            result.append(a);
+            result.append(b);
+            result.append(a);
+            result.append(b);
+            result.append(a);
+            result.append(b);
+            result.append(a);
+            result.append(b);
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double) (finish - start)) / 1000000;
     }
+
+
+//    // replace this
+//test.replace(“test”, “simple test”);
+//
+//// with this
+//StringUtils.replace(test, “test”, “simple test”);
+
 }

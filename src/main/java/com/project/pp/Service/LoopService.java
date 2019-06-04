@@ -1,5 +1,6 @@
 package com.project.pp.Service;
 
+import com.project.pp.Model.FakeData;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -12,44 +13,42 @@ public class LoopService {
     List<Integer> list = Arrays.asList(new Integer[10000000]);
 
 
-    public long simpleFor() {
+    public double simpleFor() {
         long start = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {
-            boolean flag = false;
+            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas"+1);
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double)(finish - start))/1000000;
     }
 
-    public long simpleForeach() {
+    public double simpleForeach() {
         long start = System.nanoTime();
-        for (Integer value : list) {
-            boolean flag = false;
-
+        for (Integer i : list) {
+            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double)(finish - start))/1000000;
     }
 
-    public long foreachJavaEight() {
+    public double foreachJavaEight() {
         long start = System.nanoTime();
-        list.forEach(value -> {
-            boolean flag = false;
-
+        list.forEach(i -> {
+            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
         });
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double)(finish - start))/1000000;
     }
 
-    public long simpleWhile() {
+    public double simpleWhile() {
         long start = System.nanoTime();
         int i = 0;
         while (i < list.size()) {
-            boolean flag = false;
-            i++; // ? XD
+            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
+            i++;
         }
         long finish = System.nanoTime();
-        return finish - start;
+        return ((double)(finish - start))/1000000;
     }
 
 }
