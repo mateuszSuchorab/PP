@@ -8,7 +8,7 @@ import java.math.BigInteger;
 @Service
 public class PrimitiviesSrevice {
 
-    int size = 1000000;
+    int size = 10000000;
 
     public double simpleInteger() {
         long start = System.nanoTime();

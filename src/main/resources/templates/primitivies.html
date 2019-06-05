@@ -22,22 +22,119 @@
             <a class="nav-item nav-link " href="/index">Home</a>
             <a class="nav-item nav-link " href="/forLoop">Loop</a>
             <a class="nav-item nav-link" href="/stringCreator">String</a>
+            <a class="nav-item nav-link" href="/stringReplace">String Replace</a>
             <a class="nav-item nav-link active" href="/primitivies">Primitivies</a>
+            <a class="nav-item nav-link" href="/formatString">String Format</a>
+            <a class="nav-item nav-link" href="/arrayList">ArrayList</a>
+            <a class="nav-item nav-link" href="/math">Math</a>
+
+
+
+
         </div>
     </div>
 </nav>
 
 <main role="main" class="container">
 
-    <div class="row">
-        <h1>Spring Boot Web Thymeleaf Example</h1>
-        <h2>
-            <span>Hello</span>
-        </h2>
+    <div class="row mt-5">
+        <div class="col-md-12 mb-5">
+            <div class="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="simpleInteger">Simple int</button>
+                <label class="col-md-3" id="simpleIntegerResult"></label>
+                <button type="button" class="btn btn-dark col-md-3" id="classInteger">Class Integer</button>
+                <label class="col-md-3" id="classIntegerResult"></label>
+            </div>
+            <div class="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="classBigDecimal">Class BigDecimal</button>
+                <label class="col-md-3" id="classBigDecimalResult"></label>
+                <button type="button" class="btn btn-dark col-md-3" id="classBigInteger">Class BigInteger
+                </button>
+                <label class="col-md-3" id="classBigIntegerResult"></label>
+            </div>
+        </div>
+        <div class="col-md-12 mb-5 ">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Jaka metoda</th>
+                    <th>Wynik</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
     </div>
 
 </main>
 <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var t = $('#example').DataTable({
+            scrollY: '50vh',
+            scrollCollapse: true,
+            paging: false
+        });
+        $("#simpleInteger").click(function () {
+            $.get("http://localhost:8080/simpleInteger", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#simpleIntegerResult").text(data.resultTime);
+                    t.row.add([
+                        "Simple int",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+        $("#classInteger").click(function () {
+            $.get("http://localhost:8080/classInteger", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#classIntegerResult").text(data.resultTime);
+                    t.row.add([
+                        "Class Integer",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+        $("#classBigDecimal").click(function () {
+            $.get("http://localhost:8080/classBigDecimal", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#classBigDecimalResult").text(data.resultTime);
+                    t.row.add([
+                        "Class BigDecimal",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+        $("#classBigInteger").click(function () {
+            $.get("http://localhost:8080/classBigInteger", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#classBigIntegerResult").text(data.resultTime);
+                    t.row.add([
+                        "Class BigInteger",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+    });
+</script>
 </body>
 </html>

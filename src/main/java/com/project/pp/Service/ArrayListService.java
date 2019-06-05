@@ -10,10 +10,11 @@ import java.util.stream.Collectors;
 @Service
 public class ArrayListService {
 
-    List<Integer> list = Arrays.asList(new Integer[100000]);
+    List<Integer> list = new ArrayList<>();
 
     public ArrayListService() {
-        for (int i = 0; i < list.size(); i++) {
+        int size = 10000000;
+        for (int i = 0; i < size; i++) {
             list.add(i);
         }
     }

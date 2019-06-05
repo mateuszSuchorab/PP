@@ -3,6 +3,7 @@ package com.project.pp.Service;
 import com.project.pp.Model.FakeData;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,8 +11,14 @@ import java.util.List;
 @Service
 public class LoopService {
 
-    List<Integer> list = Arrays.asList(new Integer[10000000]);
+    List<Integer> list = new ArrayList<>();
 
+    public LoopService() {
+        int size = 10000000;
+        for (int i = 0; i < size ;i++) {
+            list.add(i);
+        }
+    }
     public double simpleFor() {
         long start = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {

@@ -65,8 +65,8 @@ public class MyRestController {
         return new ResultDTO(stringService.addMultipleStringsNotOneRow());
     }
 
-    @GetMapping("/stringReplace")
-    public ResultDTO stringReplace() {
+    @GetMapping("/stringReplaceRest")
+    public ResultDTO stringReplaceRest() {
         return new ResultDTO(replaceStringService.stringReplace());
     }
 
