@@ -36,4 +36,17 @@ public class HomeController {
     @GetMapping("/math")
     public String math() {return "math";}
 
+    @GetMapping("/dotNetLoop")
+    public String dotNetLoop() {
+        return "dotNetLoop";
+    }
+
+    @GetMapping("/dotNetArrays")
+    public String dotNetArrays() {return "dotNetArrays";}
+
+    @GetMapping("/dotNetQuery")
+    public String dotNetQuery() {return "dotNetQuery";}
+
+    @GetMapping("/dotNetMultiDiv")
+    public String dotNetMultiDiv() {return "dotNetMultiDiv";}
 }
