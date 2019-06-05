@@ -1,10 +1,127 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Project PP</title>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"/>
+
 </head>
+
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link text-success " href="/index">Home</a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link text-danger">Java</a>
+            <a class="nav-item nav-link " href="/forLoop">Loop</a>
+            <a class="nav-item nav-link " href="/stringCreator">String</a>
+            <a class="nav-item nav-link " href="/stringReplace">String Replace</a>
+            <a class="nav-item nav-link " href="/primitivies">Primitivies</a>
+            <a class="nav-item nav-link " href="/formatString">String Format</a>
+            <a class="nav-item nav-link" href="/arrayList">ArrayList</a>
+            <a class="nav-item nav-link" href="/math">Math</a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link text-primary">.NET</a>
+            <a class="nav-item nav-link" href="/dotNetLoop">Loop</a>
+            <a class="nav-item nav-link active" href="/dotNetArrays">Arrays</a>
+            <a class="nav-item nav-link " href="/dotNetQuery">DB Query</a>
+            <a class="nav-item nav-link" href="/dotNetMultiDiv">Multiplication vs Division</a>
+        </div>
+    </div>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="row mt-5">
+        <div class="col-md-12 mb-5">
+            <div class="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="optimized">Optimized</button>
+                <label class="col-md-3" id="optimizedResult"></label>
+                <button type="button" class="btn btn-dark col-md-3" id="notoptimized">Notoptimized</button>
+                <label class="col-md-3" id="notoptimizedResult"></label>
+            </div>
+        </div>
+        <div class="col-md-12 mb-5 ">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Jaka metoda</th>
+                    <th>Wynik</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+
+</main>
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var t = $('#example').DataTable({
+            scrollY: '50vh',
+            scrollCollapse: true,
+            paging: false
+        });
+        $("#optimized").click(function () {
+            $.getJSON("http://ppopti.azurewebsites.net/api/arrays/optimized", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#optimizedResult").text(data.resultTime);
+                    t.row.add([
+                        "Optimized",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+        $("#notoptimized").click(function () {
+            $.getJSON("http://ppopti.azurewebsites.net/api/arrays/notoptimized", function () {
+                //ładowanie
+            })
+                .done(function (data) {
+                    $("#notoptimizedResult").text(data.resultTime);
+                    t.row.add([
+                        "Notoptimized",
+                        data.resultTime
+                    ]).draw(false);
+                })
+                .fail(function () {
+                });
+        });
+    });
+</script>
 </body>
 </html>
