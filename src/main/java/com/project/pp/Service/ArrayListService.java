@@ -13,7 +13,7 @@ public class ArrayListService {
     List<Integer> list = new ArrayList<>();
 
     public ArrayListService() {
-        int size = 10000000;
+        int size = 1000000;
         for (int i = 0; i < size; i++) {
             list.add(i);
         }

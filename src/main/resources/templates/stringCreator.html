@@ -52,7 +52,7 @@
             </div>
             <div class="row mb-3">
                 <button type="button" class="btn btn-dark col-md-3" id="addMultipleStringsNotOneRow">String + String
-                    Multiple Not in one row
+                    Multiple rows
                 </button>
                 <label class="col-md-3" id="addMultipleStringsNotOneRowResult"></label>
             </div>
@@ -146,7 +146,8 @@
                 .done(function (data) {
                     $("#addMultipleStringsNotOneRowResult").text(data.resultTime);
                     t.row.add([
-                        "String + String Multiple Not in one row",
+                        "String + String\n" +
+                        "                    Multiple rows",
                         data.resultTime
                     ]).draw(false);
                 })
