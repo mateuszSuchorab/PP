@@ -8,11 +8,41 @@ import java.math.BigInteger;
 @Service
 public class PrimitiviesSrevice {
 
-    int a = 0;
-    //vs
-    Integer b = 0;
-    //vs
-    BigDecimal c = BigDecimal.ONE;
-    //vs
-    BigInteger d = BigInteger.ONE;
+    int size = 1000000;
+
+    public double simpleInteger() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            int a = 0;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
+
+    public double classInteger() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            Integer a = 0;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
+
+    public double classBigDecimal() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            BigDecimal a = BigDecimal.ZERO;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
+
+    public double classBigInteger() {
+        long start = System.nanoTime();
+        for (int i = 0; i < size; i++) {
+            BigInteger a = BigInteger.ZERO;
+        }
+        long finish = System.nanoTime();
+        return ((double) (finish - start)) / 1000000;
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
             <a class="nav-item nav-link " href="/index">Home</a>
             <a class="nav-item nav-link " href="/forLoop">Loop</a>
             <a class="nav-item nav-link active" href="/stringCreator">String</a>
-            <a class="nav-item nav-link " href="/database">Database</a>
+            <a class="nav-item nav-link " href="/primitivies">Primitivies</a>
         </div>
     </div>
 </nav>
@@ -33,20 +33,23 @@
 
     <div class="row mt-5">
         <div class="col-md-12 mb-5">
-            <div class ="row mb-3">
+            <div class="row mb-3">
                 <button type="button" class="btn btn-dark col-md-3" id="addString">String + String</button>
                 <label class="col-md-3" id="addStringResult"></label>
                 <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder">StringBuilder</button>
                 <label class="col-md-3" id="buildStringBuilderResult"></label>
             </div>
-            <div class ="row mb-3">
+            <div class="row mb-3">
                 <button type="button" class="btn btn-dark col-md-3" id="addString2">String + String Multiple</button>
                 <label class="col-md-3" id="addString2Result"></label>
-                <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder2">StringBuilder Multiple</button>
+                <button type="button" class="btn btn-dark col-md-3" id="buildStringBuilder2">StringBuilder Multiple
+                </button>
                 <label class="col-md-3" id="buildStringBuilder2Result"></label>
             </div>
-            <div class ="row mb-3">
-                <button type="button" class="btn btn-dark col-md-3" id="addMultipleStringsNotOneRow">String + String Multiple Not in one row</button>
+            <div class="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="addMultipleStringsNotOneRow">String + String
+                    Multiple Not in one row
+                </button>
                 <label class="col-md-3" id="addMultipleStringsNotOneRowResult"></label>
             </div>
 
@@ -72,9 +75,9 @@
 <script>
     $(document).ready(function () {
         var t = $('#example').DataTable({
-            scrollY:        '50vh',
+            scrollY: '50vh',
             scrollCollapse: true,
-            paging:         false
+            paging: false
         });
         $("#addString").click(function () {
             $.get("http://localhost:8080/addStrings", function () {
@@ -82,10 +85,10 @@
             })
                 .done(function (data) {
                     $("#addStringResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "String + String",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -96,10 +99,10 @@
             })
                 .done(function (data) {
                     $("#buildStringBuilderResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "StringBuilder",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -110,10 +113,10 @@
             })
                 .done(function (data) {
                     $("#addString2Result").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "String + String Multiple",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -124,10 +127,10 @@
             })
                 .done(function (data) {
                     $("#buildStringBuilder2Result").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "StringBuilder Multiple",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -138,10 +141,10 @@
             })
                 .done(function (data) {
                     $("#addMultipleStringsNotOneRowResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "String + String Multiple Not in one row",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });

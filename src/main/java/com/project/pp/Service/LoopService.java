@@ -12,14 +12,13 @@ public class LoopService {
 
     List<Integer> list = Arrays.asList(new Integer[10000000]);
 
-
     public double simpleFor() {
         long start = System.nanoTime();
         for (int i = 0; i < list.size(); i++) {
-            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas"+1);
+            FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
         }
         long finish = System.nanoTime();
-        return ((double)(finish - start))/1000000;
+        return ((double) (finish - start)) / 1000000;
     }
 
     public double simpleForeach() {
@@ -28,7 +27,7 @@ public class LoopService {
             FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
         }
         long finish = System.nanoTime();
-        return ((double)(finish - start))/1000000;
+        return ((double) (finish - start)) / 1000000;
     }
 
     public double foreachJavaEight() {
@@ -37,7 +36,7 @@ public class LoopService {
             FakeData f = new FakeData(1, false, "dsadsadffffffffffffffffffffASdas" + 1);
         });
         long finish = System.nanoTime();
-        return ((double)(finish - start))/1000000;
+        return ((double) (finish - start)) / 1000000;
     }
 
     public double simpleWhile() {
@@ -48,7 +47,7 @@ public class LoopService {
             i++;
         }
         long finish = System.nanoTime();
-        return ((double)(finish - start))/1000000;
+        return ((double) (finish - start)) / 1000000;
     }
 
 }

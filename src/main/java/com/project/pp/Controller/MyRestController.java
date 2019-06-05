@@ -2,8 +2,7 @@ package com.project.pp.Controller;
 
 
 import com.project.pp.DTO.ResultDTO;
-import com.project.pp.Service.LoopService;
-import com.project.pp.Service.StringService;
+import com.project.pp.Service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +13,12 @@ public class MyRestController {
 
     private final LoopService loopService;
     private final StringService stringService;
+    private final ReplaceStringService replaceStringService;
+    private final PrimitiviesSrevice primitiviesSrevice;
+    private final FormatStringService formatStringService;
+    private final ArrayListService arrayListService;
+    private final MathService mathService;
+
 
     @GetMapping("/simpleFor")
     public ResultDTO simpleFor() {
@@ -59,4 +64,68 @@ public class MyRestController {
     public ResultDTO addMultipleStringsNotOneRow() {
         return new ResultDTO(stringService.addMultipleStringsNotOneRow());
     }
+
+    @GetMapping("/stringReplace")
+    public ResultDTO stringReplace() {
+        return new ResultDTO(replaceStringService.stringReplace());
+    }
+
+    @GetMapping("/superStringReplace")
+    public ResultDTO superStringReplace() {
+        return new ResultDTO(replaceStringService.superStringReplace());
+    }
+
+    @GetMapping("/simpleInteger")
+    public ResultDTO simpleInteger() {
+        return new ResultDTO(primitiviesSrevice.simpleInteger());
+    }
+
+    @GetMapping("/classInteger")
+    public ResultDTO classInteger() {
+        return new ResultDTO(primitiviesSrevice.classInteger());
+    }
+
+    @GetMapping("/classBigDecimal")
+    public ResultDTO classBigDecimal() {
+        return new ResultDTO(primitiviesSrevice.classBigDecimal());
+    }
+
+    @GetMapping("/classBigInteger")
+    public ResultDTO classBigInteger() {
+        return new ResultDTO(primitiviesSrevice.classBigInteger());
+    }
+
+    @GetMapping("/stringFormat")
+    public ResultDTO stringFormat() {
+        return new ResultDTO(formatStringService.stringFormat());
+    }
+
+    @GetMapping("/stringConcat")
+    public ResultDTO stringConcat() {
+        return new ResultDTO(formatStringService.stringConcat());
+    }
+
+    @GetMapping("/testStream")
+    public ResultDTO testStream() {
+        return new ResultDTO(arrayListService.testStream());
+    }
+
+    @GetMapping("/testFor")
+    public ResultDTO testFor() {
+        return new ResultDTO(arrayListService.testFor());
+    }
+
+    @GetMapping("/testStreamParrallel")
+    public ResultDTO testStreamParrallel() {
+        return new ResultDTO(arrayListService.testStreamParrallel());
+    }
+    @GetMapping("/oneLine")
+    public ResultDTO oneLine() {
+        return new ResultDTO(mathService.oneLine());
+    }
+    @GetMapping("/twoLine")
+    public ResultDTO twoLine() {
+        return new ResultDTO(mathService.twoLine());
+    }
+
 }

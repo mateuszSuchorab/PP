@@ -1,28 +1,31 @@
 package com.project.pp.Service;
 
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 
 @Service
-public class FormatStringService {
+public class ReplaceStringService {
+    int size = 100000;
+    String a = "5";
+    String b = "5";
 
-    int size = 1000000;
-    String foo = "foo";
-
-    public double stringFormat() {
+    public double stringReplace() {
         long start = System.nanoTime();
         for (int i = 0; i < size; i++) {
-            String formattedString = String.format("%s = %d", foo, 2);
+            a.replace(a, b);
         }
         long finish = System.nanoTime();
         return ((double) (finish - start)) / 1000000;
     }
 
-    public double stringConcat() {
+    public double superStringReplace() {
         long start = System.nanoTime();
         for (int i = 0; i < size; i++) {
-            String concattedString = foo + " = " + 2;
+            StringUtils.replace(a, a, b);
         }
         long finish = System.nanoTime();
         return ((double) (finish - start)) / 1000000;
     }
+
+
 }

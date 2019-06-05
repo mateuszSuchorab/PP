@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
 </head>
 
@@ -24,7 +24,7 @@
             <a class="nav-item nav-link " href="/index">Home</a>
             <a class="nav-item nav-link active" href="/forLoop">Loop</a>
             <a class="nav-item nav-link" href="/stringCreator">String</a>
-            <a class="nav-item nav-link" href="/database">Database</a>
+            <a class="nav-item nav-link" href="/primitivies">Primitivies</a>
         </div>
     </div>
 </nav>
@@ -33,14 +33,15 @@
 
     <div class="row mt-5">
         <div class="col-md-12 mb-5">
-            <div class ="row mb-3">
+            <div class="row mb-3">
                 <button type="button" class="btn btn-dark col-md-3" id="simpleFor">Simple For</button>
                 <label class="col-md-3" id="simpleForResult"></label>
                 <button type="button" class="btn btn-dark col-md-3" id="simpleForEach">Simple ForEach</button>
                 <label class="col-md-3" id="simpleForEachResult"></label>
             </div>
-            <div class ="row mb-3">
-                <button type="button" class="btn btn-dark col-md-3" id="forEachFromJavaEight">ForEach from java 8</button>
+            <div class="row mb-3">
+                <button type="button" class="btn btn-dark col-md-3" id="forEachFromJavaEight">ForEach from java 8
+                </button>
                 <label class="col-md-3" id="forEachFromJavaEightResult"></label>
                 <button type="button" class="btn btn-dark col-md-3" id="simpleWhile">Simple While</button>
                 <label class="col-md-3" id="simpleWhileResult"></label>
@@ -67,9 +68,9 @@
 <script>
     $(document).ready(function () {
         var t = $('#example').DataTable({
-            scrollY:        '50vh',
+            scrollY: '50vh',
             scrollCollapse: true,
-            paging:         false
+            paging: false
         });
         $("#simpleFor").click(function () {
             $.get("http://localhost:8080/simpleFor", function () {
@@ -77,10 +78,10 @@
             })
                 .done(function (data) {
                     $("#simpleForResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "Simple For",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -91,10 +92,10 @@
             })
                 .done(function (data) {
                     $("#simpleForEachResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "Simple ForEach",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -105,10 +106,10 @@
             })
                 .done(function (data) {
                     $("#forEachFromJavaEightResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "ForEach from java 8",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });
@@ -119,10 +120,10 @@
             })
                 .done(function (data) {
                     $("#simpleWhileResult").text(data.resultTime);
-                    t.row.add( [
+                    t.row.add([
                         "Simple While",
                         data.resultTime
-                    ] ).draw( false );
+                    ]).draw(false);
                 })
                 .fail(function () {
                 });

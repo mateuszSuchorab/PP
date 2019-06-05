@@ -16,13 +16,26 @@ public class HomeController {
         return "forLoop";
     }
 
-    @GetMapping("/database")
-    public String database() {
-        return "database";
+    @GetMapping("/stringCreator")
+    public String stringCreator() {return "stringCreator";}
+
+
+    //TODO
+    @GetMapping("/stringReplace")
+    public String stringReplace() {return "stringReplace";}
+
+    @GetMapping("/primitivies")
+    public String primitivies() {
+        return "primitivies";
     }
 
-    @GetMapping("/stringCreator")
-    public String stringCreator() {return "stringCreator";
-    }
+    @GetMapping("/formatString")
+    public String formatString() {return "formatString";}
+
+    @GetMapping("/arrayList")
+    public String arrayList() {return "arrayList";}
+
+    @GetMapping("/math")
+    public String math() {return "math";}
 
 }

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class StringService {
 
-        int size = 100000;
-        String a = "5";
-        String b = "5";
+    int size = 100000;
+    String a = "5";
+    String b = "5";
 
     public double addStrings() {
         long start = System.nanoTime();
         for (int i = 0; i < size; i++) {
-            String result="";
+            String result = "";
             result = a + b;
         }
         long finish = System.nanoTime();
@@ -40,6 +40,7 @@ public class StringService {
         long finish = System.nanoTime();
         return ((double) (finish - start)) / 1000000;
     }
+
     public double addMultipleStringsNotOneRow() {
         long start = System.nanoTime();
         for (int i = 0; i < size; i++) {
@@ -77,12 +78,5 @@ public class StringService {
         long finish = System.nanoTime();
         return ((double) (finish - start)) / 1000000;
     }
-
-
-//    // replace this
-//test.replace(“test”, “simple test”);
-//
-//// with this
-//StringUtils.replace(test, “test”, “simple test”);
 
 }
