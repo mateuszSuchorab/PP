@@ -19,8 +19,6 @@ public class HomeController {
     @GetMapping("/stringCreator")
     public String stringCreator() {return "stringCreator";}
 
-
-    //TODO
     @GetMapping("/stringReplace")
     public String stringReplace() {return "stringReplace";}
 

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FormatStringService {
 
-    int size = 1000000;
+    int size = 100000;
     String foo = "foo";
 
     public double stringFormat() {
